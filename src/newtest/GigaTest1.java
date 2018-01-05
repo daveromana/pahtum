@@ -624,7 +624,8 @@ public class GigaTest1 {
 			//new random board.
 			if(testIndex % 2 == 1) {
 				//Load a new board.
-				boardTest3 = boardCollectionTest3[(Integer) testIndex/2];
+				Integer testIndexInteger = (Integer) testIndex/2;
+				boardTest3 = boardCollectionTest3[testindexInteger];
 				initialPositionTest3 = boardTest3.duplicate();
 			} else {
 				//Reset the board.
