@@ -886,7 +886,7 @@ public class GigaTest1 {
 			//new random board.
 			if(testIndex % 2 == 1) {
 				//Load a new board.
-				boardTest4 = boardCollectionTest4[(Integer) testIndex/2];
+				boardTest4 = boardCollectionTest4[maxCast(testIndex/2)];
 				initialPositionTest4 = boardTest4.duplicate();
 			} else {
 				//Reset the board.
@@ -1148,7 +1148,7 @@ public class GigaTest1 {
 			//new random board.
 			if(testIndex % 2 == 1) {
 				//Load a new board.
-				boardTest5 = boardCollectionTest5[(Integer) testIndex/2];
+				boardTest5 = boardCollectionTest5[maxCast(testIndex/2)];
 				initialPositionTest5 = boardTest5.duplicate();
 			} else {
 				//Reset the board.
@@ -1409,7 +1409,7 @@ public class GigaTest1 {
 			//new random board.
 			if(testIndex % 2 == 1) {
 				//Load a new board.
-				boardTest6 = boardCollectionTest6[(Integer) testIndex/2];
+				boardTest6 = boardCollectionTest6[maxCast(testIndex/2)];
 				initialPositionTest6 = boardTest6.duplicate();
 			} else {
 				//Reset the board.
