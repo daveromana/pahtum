@@ -367,6 +367,7 @@ public class GigaTest1 {
 			if(testIndex % 2 == 1) {
 				//Load a new board.
 				
+			
 				boardTest2 = boardCollectionTest2[maxCast(testIndex/2)];
 				initialPositionTest2 = boardTest2.duplicate();
 			} else {
@@ -1593,7 +1594,7 @@ public class GigaTest1 {
 
 	}
 
-public Integer maxCast (int a){
+private static Integer maxCast (int a){
 	
 	Integer valInteger = (Integer) a; 
 		

@@ -1591,7 +1591,7 @@ public class GigaTest3 {
 
 	}
 	
-public Integer maxCast (int a){
+public static Integer maxCast (int a){
 		
 		Integer valInteger = (Integer) a; 
 			
