@@ -624,7 +624,7 @@ public class GigaTest4 {
 			//new random board.
 			if(testIndex % 2 == 1) {
 				//Load a new board.
-				boardTest3 = boardCollectionTest3[(Integer) testIndex/2];
+				boardTest3 = boardCollectionTest3[maxCast(testIndex/2)];
 				initialPositionTest3 = boardTest3.duplicate();
 			} else {
 				//Reset the board.
@@ -884,7 +884,7 @@ public class GigaTest4 {
 			//new random board.
 			if(testIndex % 2 == 1) {
 				//Load a new board.
-				boardTest4 = boardCollectionTest4[(Integer) testIndex/2];
+				boardTest4 = boardCollectionTest4[maxCast(testIndex/2)];
 				initialPositionTest4 = boardTest4.duplicate();
 			} else {
 				//Reset the board.
@@ -1146,7 +1146,7 @@ public class GigaTest4 {
 			//new random board.
 			if(testIndex % 2 == 1) {
 				//Load a new board.
-				boardTest5 = boardCollectionTest5[(Integer) testIndex/2];
+				boardTest5 = boardCollectionTest5[maxCast(testIndex/2)];
 				initialPositionTest5 = boardTest5.duplicate();
 			} else {
 				//Reset the board.
@@ -1407,7 +1407,7 @@ public class GigaTest4 {
 			//new random board.
 			if(testIndex % 2 == 1) {
 				//Load a new board.
-				boardTest6 = boardCollectionTest6[(Integer) testIndex/2];
+				boardTest6 = boardCollectionTest6[maxCast(testIndex/2)];
 				initialPositionTest6 = boardTest6.duplicate();
 			} else {
 				//Reset the board.
@@ -1590,5 +1590,13 @@ public class GigaTest4 {
 		output1Test6.close();
 
 	}
+	
+public Integer maxCast (int a){
+		
+		Integer valInteger = (Integer) a; 
+			
+		return valInteger;
+		}
+		
 
 }
