@@ -59,7 +59,8 @@ public class MonteCarloH7 {
 	 * @throws Exception 
 	 */
 	private Node treePolicy(Node node, Board board) throws Exception {
-		while(node.getMoveNumber() < this.allMovesNumber) {
+		int number_ = node.getMoveNumber();
+		while(number_ < this.allMovesNumber) {
 			if(node.getUntriedMoves().size() != 0) {
 				Node newNode =  node.expand(board, this.color);
 				return newNode;
