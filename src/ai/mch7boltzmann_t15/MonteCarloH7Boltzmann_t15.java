@@ -249,8 +249,8 @@ public class MonteCarloH7Boltzmann_t15 implements Engine {
 		for(Node item : node.getChildren()) {
 			candidateChildren.add(item);
 		}
-		
-		while(candidateChildren.size() != 0) {
+		int numberChildren = candidateChildren.size();
+		while(numberChildren != 0) {
 			double tmpProbability = 99999999;
 			Node tmpChild = null;
 			
@@ -262,6 +262,7 @@ public class MonteCarloH7Boltzmann_t15 implements Engine {
 				}
 			}
 			candidateChildren.remove(tmpChild);
+			 numberChildren = candidateChildren.size();
 			
 			double summedProbabilities = 0;
 			if(!organizedChildren.isEmpty()) {
