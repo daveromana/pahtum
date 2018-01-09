@@ -92,7 +92,8 @@ public class MonteCarloH5Boltzmann implements Engine {
 	private Node treePolicy(Node node, Board board) throws Exception {
 		//While node is not a terminal state apply Tree Policy. Terminal state 
 		//is the same as fully populated board.
-		while(node.getMoveNumber() < this.allMovesNumber) {
+		int nodeNumber = node.getMoveNumber();
+		while(nodeNumber < this.allMovesNumber) {
 			//Check if node is fully expanded.
 			if(node.getUntriedMoves().size() != 0) {
 				//Not fully expanded. Return a newly created node.
@@ -248,8 +249,8 @@ public class MonteCarloH5Boltzmann implements Engine {
 		for(Node item : node.getChildren()) {
 			candidateChildren.add(item);
 		}
-		
-		while(candidateChildren.size() != 0) {
+		int numberCandidateChildren = candidateChildren.size();
+		while(numberCandidateChildren != 0) {
 			double tmpProbability = 99999999;
 			Node tmpChild = null;
 			

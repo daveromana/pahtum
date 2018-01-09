@@ -98,7 +98,8 @@ public class MMNode {
 	 * @param node
 	 */
 	public static void back_propagate(MMNode node) {
-		while(node.getChildren().size() != 0) {
+		int number_ = node.getChildren().size(); 
+		while(number_ != 0) {
 			node = node.getChildren().get(0);
 		}
 
