@@ -529,25 +529,31 @@ public class Board implements Serializable{
 
 					int enemy_adjustment_x = 1, enemy_adjustment_y = 1;
 					try {
-						while(board[index_x - 1][index_y].equals(enemyColor)) {
+						boolean  enemyColor_Minus =board[index_x - 1][index_y].equals(enemyColor);
+						while(enemyColor_Minus) {
 							++enemy_adjustment_x;
 							--index_x;
+							enemyColor_Minus =board[index_x - 1][index_y].equals(enemyColor);
 						}
 					} catch(Exception e) { }
 
 					index_x = x;
 					index_y = y;
 					try {
-						while(board[index_x + 1][index_y].equals(enemyColor)) {
+						boolean  enemyColor_Plus =board[index_x + 1][index_y].equals(enemyColor);
+
+						while(enemyColor_Plus) {
 							++enemy_adjustment_x;
 							++index_x;
+							enemyColor_Plus =board[index_x + 1][index_y].equals(enemyColor);
 						}
 					} catch(Exception e) { }
 
 					index_x = x;
 					index_y = y;
 					try {
-						while(board[index_x][index_y - 1].equals(enemyColor)) {
+						boolean  enemyColor_Minus = board[index_x][index_y - 1].equals(enemyColor);
+						while(enemyColor_Minus) {
 							++enemy_adjustment_y;
 							--index_y;
 						}
@@ -556,7 +562,8 @@ public class Board implements Serializable{
 					index_x = x;
 					index_y = y;
 					try {
-						while(board[index_x][index_y + 1].equals(enemyColor)) {
+						boolean  enemyColor_plus = board[index_x][index_y + 1].equals(enemyColor);
+						while(enemyColor_plus) {
 							++enemy_adjustment_y;
 							++index_y;
 						}
@@ -649,7 +656,10 @@ public class Board implements Serializable{
 					int horizontal_adjustment = 1, vertical_adjustment = 1;
 					// (-,0) direction. 
 					try {
-						while(board[index_x - 1][index_y].equals("e") || board[index_x - 1][index_y].equals(color)) {
+						boolean board_EMinus, board_CMinus;
+						board_EMinus = board[index_x - 1][index_y].equals("e") ;
+						board_CMinus = board[index_x - 1][index_y].equals(color);
+						while(board_EMinus || board_CMinus) {
 							if(board[index_x - 1][index_y].equals("e")) {
 								case_1 = false;
 								potential += distance;
@@ -670,7 +680,10 @@ public class Board implements Serializable{
 					index_y = y;
 					distance = 7;
 					try {
-						while(board[index_x][index_y - 1].equals("e") || board[index_x][index_y - 1].equals(color)) {
+						boolean board_EMinus, board_CMinus;
+						board_EMinus = board[index_x][index_y - 1].equals("e") ;
+						board_CMinus = board[index_x][index_y - 1].equals(color);
+						while(board_EMinus || board_CMinus) {
 							if(board[index_x][index_y - 1].equals("e")) {
 								case_2 = false;
 								potential += distance;
@@ -691,7 +704,10 @@ public class Board implements Serializable{
 					index_y = y;
 					distance = 7;
 					try {
-						while(board[index_x][index_y + 1].equals("e") || board[index_x][index_y + 1].equals(color)) {
+						boolean board_EPlus, board_CPlus;
+						board_EPlus = board[index_x][index_y + 1].equals("e");
+						board_CPlus = board[index_x][index_y + 1].equals(color);
+						while(board_EPlus || board_CPlus) {
 							if(board[index_x][index_y + 1].equals("e")) {
 								case_3 = false;
 								potential += distance;
@@ -712,7 +728,10 @@ public class Board implements Serializable{
 					index_y = y;
 					distance = 7;
 					try {
-						while(board[index_x + 1][index_y].equals("e") || board[index_x + 1][index_y].equals(color)) {
+						boolean board_E, board_C;
+						board_E = board[index_x + 1][index_y].equals("e") ;
+						board_C = board[index_x + 1][index_y].equals(color);
+						while(board_E || board_C) {
 							if(board[index_x + 1][index_y].equals("e")) {
 								case_4 = false;
 								potential += distance;
@@ -791,7 +810,8 @@ public class Board implements Serializable{
 					index_x = x;
 					index_y = y;
 					try {
-						while(board[index_x + 1][index_y].equals(enemyColor)) {
+						boolean enemyColor_1P = board[index_x + 1][index_y].equals(enemyColor);
+						while(enemyColor_1P) {
 							++enemy_adjustment_x;
 							++index_x;
 						}
@@ -803,7 +823,9 @@ public class Board implements Serializable{
 					index_x = x;
 					index_y = y;
 					try {
-						while(board[index_x][index_y - 1].equals(enemyColor)) {
+						boolean enemyColor_1M = board[index_x][index_y - 1].equals(enemyColor);
+
+						while(enemyColor_1M) {
 							++enemy_adjustment_y;
 							--index_y;
 						}
@@ -815,7 +837,8 @@ public class Board implements Serializable{
 					index_x = x;
 					index_y = y;
 					try {
-						while(board[index_x][index_y + 1].equals(enemyColor)) {
+						boolean enemyColor_1 = board[index_x][index_y + 1].equals(enemyColor);
+						while(enemyColor_1) {
 							++enemy_adjustment_y;
 							++index_y;
 						}
@@ -903,7 +926,10 @@ public class Board implements Serializable{
 					int horizontal_adjustment = 1, vertical_adjustment = 1;
 					// (-,0) direction. 
 					try {
-						while(board[index_x - 1][index_y].equals("e") || board[index_x - 1][index_y].equals(color)) {
+						boolean board_E, board_Color;
+						board_E =board[index_x - 1][index_y].equals("e") ;
+						board_Color = board[index_x - 1][index_y].equals(color);
+						while(board_E || board_Color) {
 							if(board[index_x - 1][index_y].equals("e")) {
 								case_1 = false;
 								potential += distance;
@@ -924,7 +950,10 @@ public class Board implements Serializable{
 					index_y = y;
 					distance = 7;
 					try {
-						while(board[index_x][index_y - 1].equals("e") || board[index_x][index_y - 1].equals(color)) {
+						boolean board_E, board_Color;
+						board_E = board[index_x][index_y - 1].equals("e") ;
+						board_Color =  board[index_x][index_y - 1].equals(color);
+						while(board_E || board_Color) {
 							if(board[index_x][index_y - 1].equals("e")) {
 								case_2 = false;
 								potential += distance;
@@ -945,7 +974,10 @@ public class Board implements Serializable{
 					index_y = y;
 					distance = 7;
 					try {
-						while(board[index_x][index_y + 1].equals("e") || board[index_x][index_y + 1].equals(color)) {
+						boolean board_E, board_Color;
+						board_E = board[index_x][index_y + 1].equals("e") ;
+						board_Color = board[index_x][index_y + 1].equals(color);
+						while(board_E || board_Color) {
 							if(board[index_x][index_y + 1].equals("e")) {
 								case_3 = false;
 								potential += distance;
@@ -966,7 +998,10 @@ public class Board implements Serializable{
 					index_y = y;
 					distance = 7;
 					try {
-						while(board[index_x + 1][index_y].equals("e") || board[index_x + 1][index_y].equals(color)) {
+						boolean board_E, board_Color;
+						board_E = board[index_x + 1][index_y].equals("e");
+						board_Color = board[index_x + 1][index_y].equals(color);
+						while( board_E || board_Color ) {
 							if(board[index_x + 1][index_y].equals("e")) {
 								case_4 = false;
 								potential += distance;
@@ -1033,7 +1068,8 @@ public class Board implements Serializable{
 
 					int enemy_adjustment_x = 1, enemy_adjustment_y = 1;
 					try {
-						while(board[index_x - 1][index_y].equals(enemyColor)) {
+						boolean emenyColor_M1 = board[index_x - 1][index_y].equals(enemyColor);
+						while(emenyColor_M1) {
 							++enemy_adjustment_x;
 							--index_x;
 						}
@@ -1045,7 +1081,8 @@ public class Board implements Serializable{
 					index_x = x;
 					index_y = y;
 					try {
-						while(board[index_x + 1][index_y].equals(enemyColor)) {
+						boolean emenyColor_P1 = board[index_x + 1][index_y].equals(enemyColor);
+						while(emenyColor_P1) {
 							++enemy_adjustment_x;
 							++index_x;
 						}
@@ -1057,7 +1094,8 @@ public class Board implements Serializable{
 					index_x = x;
 					index_y = y;
 					try {
-						while(board[index_x][index_y - 1].equals(enemyColor)) {
+						boolean emenyColor_1 = board[index_x][index_y - 1].equals(enemyColor);
+						while(emenyColor_1) {
 							++enemy_adjustment_y;
 							--index_y;
 						}
@@ -1069,7 +1107,8 @@ public class Board implements Serializable{
 					index_x = x;
 					index_y = y;
 					try {
-						while(board[index_x][index_y + 1].equals(enemyColor)) {
+						boolean emenyColor = board[index_x][index_y + 1].equals(enemyColor);
+						while(emenyColor) {
 							++enemy_adjustment_y;
 							++index_y;
 						}
