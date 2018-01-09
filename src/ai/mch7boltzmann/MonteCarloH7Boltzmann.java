@@ -96,6 +96,7 @@ public class MonteCarloH7Boltzmann implements Engine {
 			if(node.getUntriedMoves().size() != 0) {
 				//Not fully expanded. Return a newly created node.
 				Node newNode =  node.expand(board, this.color);
+				numberNode = node.getMoveNumber();
 				return newNode;
 			} else {
 				//Node is fully expanded. Get color of currently investigated 
@@ -114,6 +115,7 @@ public class MonteCarloH7Boltzmann implements Engine {
 				
 				//Update a board of a move from selected node.
 				board.makeMove(node.getMove(), color);
+				numberNode = node.getMoveNumber();
 			}
 		}
 		return node;
@@ -247,8 +249,8 @@ public class MonteCarloH7Boltzmann implements Engine {
 		for(Node item : node.getChildren()) {
 			candidateChildren.add(item);
 		}
-		int candidateChildrenNumber = candidateChildren.size();
-		while(candidateChildrenNumber!= 0) {
+		int nuberChildren = candidateChildren.size();
+		while(nuberChildren != 0) {
 			double tmpProbability = 99999999;
 			Node tmpChild = null;
 			
@@ -260,6 +262,7 @@ public class MonteCarloH7Boltzmann implements Engine {
 				}
 			}
 			candidateChildren.remove(tmpChild);
+			nuberChildren = candidateChildren.size();
 			
 			double summedProbabilities = 0;
 			if(!organizedChildren.isEmpty()) {

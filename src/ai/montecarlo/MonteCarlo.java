@@ -82,12 +82,13 @@ public class MonteCarlo {
 	private Node treePolicy(Node node, Board board) throws Exception {
 		//While node is not a terminal state apply Tree Policy. Terminal state 
 		//is the same as fully populated board.
-		int number_ = node.getMoveNumber(); 
-		while(number_< this.allMovesNumber) {
+		int numberNode = node.getMoveNumber() ;
+		while(numberNode < this.allMovesNumber) {
 			//Check if node is fully expanded.
 			if(node.getUntriedMoves().size() != 0) {
 				//Not fully expanded. Return a newly created node.
 				Node newNode =  node.expand(board);
+				numberNode = node.getMoveNumber() ;
 				return newNode;
 			} else {
 				//Node is fully expanded. Get color of currently investigated 
@@ -101,6 +102,7 @@ public class MonteCarlo {
 				
 				//Update a board of a move from selected node.
 				board.makeMove(node.getMove(), color);
+				numberNode = node.getMoveNumber() ;
 			}
 		}
 		return node;

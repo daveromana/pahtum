@@ -48,8 +48,6 @@ public class MonteCarloH10 {
 				node = treePolicy(root.getRoot(), tempBoard);
 			} catch (Exception e) {
 				System.out.println("TREE_POLICY");
-				
-				e.printStackTrace();
 				System.exit(0);
 			}
 			String delta = null;
@@ -57,7 +55,6 @@ public class MonteCarloH10 {
 				delta = defaultPolicy(node, tempBoard);
 			} catch (Exception e) {
 				System.out.println("DEFAULT_POLICY");
-				e.printStackTrace();
 				System.exit(0);
 			}
 			back_up(node, delta);
@@ -73,10 +70,11 @@ public class MonteCarloH10 {
 	 * @throws Exception 
 	 */
 	private Node treePolicy(Node node, Board board) {
-		int number_ = node.getMoveNumber(); 
-		while(number_ < this.allMovesNumber) {
+		int numberNode = node.getMoveNumber() ;
+		while(numberNode < this.allMovesNumber) {
 			if(node.getUntriedMoves().size() != 0) {
 				Node newNode =  node.expand(board, this.color);
+				numberNode = node.getMoveNumber() ;
 				return newNode;
 			} else {
 				String color = node.getColor();
@@ -92,7 +90,6 @@ public class MonteCarloH10 {
 					System.out.println("EXception when making move");
 					System.out.println(">>" + node.getParent().getMoveNumber());
 					System.exit(0);
-					e.printStackTrace();
 				}
 			}
 		}

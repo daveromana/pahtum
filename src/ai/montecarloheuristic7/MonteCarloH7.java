@@ -63,16 +63,20 @@ public class MonteCarloH7 {
 		while(number_ < this.allMovesNumber) {
 			if(node.getUntriedMoves().size() != 0) {
 				Node newNode =  node.expand(board, this.color);
+				number_ = node.getMoveNumber();
 				return newNode;
+				
 			} else {
 				String color = node.getColor();
 				try {
 					node = bestChild(node, this.c);
+					number_ = node.getMoveNumber();
 				} catch(Exception e) {
 					//node is a terminal state.
 					return node;
 				}
 				board.makeMove(node.getMove(), color);
+				number_ = node.getMoveNumber();
 			}
 		}
 		return node;

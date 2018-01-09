@@ -58,10 +58,11 @@ public class MonteCarloH {
 	 * @throws Exception 
 	 */
 	private Node treePolicy(Node node, Board board) throws Exception {
-		int number_ = node.getMoveNumber(); 
-		while(number_ <= this.allMovesNumber) {
+		int numberNode = node.getMoveNumber() ;
+		while(node.getMoveNumber() <= this.allMovesNumber) {
 			if(node.getUntriedMoves().size() != 0) {
 				Node newNode =  node.expand(board, this.color);
+				numberNode = node.getMoveNumber() ;
 				return newNode;
 			} else {
 				String color = node.getColor();
@@ -72,6 +73,7 @@ public class MonteCarloH {
 					return node;
 				}
 				board.makeMove(node.getMove(), color);
+				numberNode = node.getMoveNumber() ;
 			}
 		}
 		return node;
