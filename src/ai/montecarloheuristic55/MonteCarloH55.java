@@ -92,12 +92,13 @@ public class MonteCarloH55 {
 		Random generator = new Random();
 		String color = node.getColor();
 		int moveNumber = node.getMoveNumber();
+		String w = "w";
 
 		while(moveNumber < this.allMovesNumber) {
 			List<Tuple<Integer, Integer>> listValidMoves;
 			listValidMoves = board.heuristic_bestX_moves(color, 5);
 			board.makeMove(listValidMoves.get(generator.nextInt(listValidMoves.size())), color);
-			if(color.equals("w")) {
+			if(color.equals(w)) {
 				color = "b";
 			} else {
 				color = "w";
@@ -161,8 +162,9 @@ public class MonteCarloH55 {
 	 */
 	private void back_up(Node node, String delta) {
 		double value;
+		String zero = "0";
 		
-		if(delta.equals("0")) {
+		if(delta.equals(zero)) {
 			value = .5;
 		}else if(delta.equals(node.getColor())) {
 			value = 0;

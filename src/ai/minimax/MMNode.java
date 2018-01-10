@@ -19,15 +19,18 @@ public class MMNode {
 		this.move = move;
 		this.quality = -1;
 		this.children = new ArrayList<MMNode>();
+		String w = "w";
+		String bs = "b";
+		
 		if(move != null) {
 			board.makeMove(move, color);
 		}
 		this.parent = parent;
-		color = (color.equals("w") ? "b" : "w");
+		color = (color.equals(w) ? bs : w);
 		this.color = color;
 		for(Tuple<Integer, Integer> item : board.getListValidMoves()) {
 			Board copy_board = board.duplicate();
-			String copy_color = (color.equals("w") ? "w" : "b");
+			String copy_color = (color.equals(w) ? w : bs);
 			MMNode new_node = new MMNode(this, item, copy_board, copy_color);
 			this.children.add(new_node);
 		}
@@ -43,7 +46,9 @@ public class MMNode {
 			String result = Rules.calculateScore(board);
 			System.out.println(result);
 			double value;
-			if(result.equals("0")) {
+			String zero = "0";
+			
+			if(result.equals(zero)) {
 				System.out.println(">> .5");
 				value = .5;
 			} else if(!result.equals(this.color)) {

@@ -131,6 +131,8 @@ public class MonteCarloHBoltzmann implements Engine {
 		Random generator = new Random();
 		String color = node.getColor();
 		int moveNumber = node.getMoveNumber();
+		String w = "w";
+		String b = "b";
 
 		//Check if terminal state hasn't been reached. If not play next move.
 		while(moveNumber < this.allMovesNumber) {
@@ -144,7 +146,7 @@ public class MonteCarloHBoltzmann implements Engine {
 					listValidMoves.size())), color);
 			
 			//Switch the colors.
-			color = color.equals("w") ? "b" : "w";
+			color = color.equals(w) ? b : w;
 			
 			//Increment the move's counter.
 			++moveNumber;
@@ -163,10 +165,10 @@ public class MonteCarloHBoltzmann implements Engine {
 	 */
 	private void backUp(Node node, String delta) {
 		double value;
-		
+		String zero = "0";
 		//Assign numeric value based on the outcome of simulation and color of 
 		//the move (whether this move is good for MC or not).
-		if(delta.equals("0")) {
+		if(delta.equals(zero)) {
 			value = .5;
 		} else if(delta.equals(node.getColor())) {
 			value = 0;

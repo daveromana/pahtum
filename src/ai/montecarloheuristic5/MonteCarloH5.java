@@ -129,6 +129,7 @@ public class MonteCarloH5 {
 		Random generator = new Random();
 		String color = node.getColor();
 		int moveNumber = node.getMoveNumber();
+		String w = "w";
 
 		//Check if terminal state hasn't been reached. If not play next move.
 		while(moveNumber < this.allMovesNumber) {
@@ -149,7 +150,7 @@ public class MonteCarloH5 {
 					listValidMoves.size())), color);
 			
 			//Switch the colors.
-			if(color.equals("w")) {
+			if(color.equals(w)) {
 				color = "b";
 			} else {
 				color = "w";
@@ -169,10 +170,10 @@ public class MonteCarloH5 {
 	 */
 	private void back_up(Node node, String delta) {
 		double value;
-		
+		String zero = "0";
 		//Assign numeric value based on the outcome of simulation and color of 
 		//the move (whether this move is good for MC or not).
-		if(delta.equals("0")) {
+		if(delta.equals(zero)) {
 			value = .5;
 		} else if(delta.equals(node.getColor())) {
 			value = 0;
