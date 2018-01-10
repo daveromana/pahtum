@@ -80,7 +80,6 @@ public class test_boltzman {
 			FileInputStream fisTest1 = new FileInputStream("50_boards_3.sav");
 			ObjectInputStream oisTest1 = new ObjectInputStream(fisTest1);
 			boardCollectionTest1 = (Board[]) oisTest1.readObject();
-			oisTest1.close();
 		} catch(Exception e) {
 			System.err.println("Error" + e.getMessage());
 		}

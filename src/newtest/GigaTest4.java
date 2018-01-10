@@ -81,6 +81,7 @@ public class GigaTest4 {
 			FileInputStream fisTest1 = new FileInputStream("50_boards_11.sav");
 			ObjectInputStream oisTest1 = new ObjectInputStream(fisTest1);
 			boardCollectionTest1 = (Board[]) oisTest1.readObject();
+			oisTest1.close();
 		} catch(Exception e) {
 			System.err.println("Error" + e.getMessage());
 		}
@@ -347,6 +348,7 @@ public class GigaTest4 {
 			FileInputStream fisTest2 = new FileInputStream("50_boards_11.sav");
 			ObjectInputStream oisTest2 = new ObjectInputStream(fisTest2);
 			boardCollectionTest2 = (Board[]) oisTest2.readObject();
+			oisTest2.close();
 		} catch(Exception e) {
 			System.err.println("Error" + e.getMessage());
 		}
@@ -612,6 +614,7 @@ public class GigaTest4 {
 			FileInputStream fisTest3 = new FileInputStream("50_boards_11.sav");
 			ObjectInputStream oisTest3 = new ObjectInputStream(fisTest3);
 			boardCollectionTest3 = (Board[]) oisTest3.readObject();
+			oisTest3.close();
 		} catch(Exception e) {
 			System.err.println("Error" + e.getMessage());
 		}
@@ -879,6 +882,7 @@ public class GigaTest4 {
 			FileInputStream fisTest4 = new FileInputStream("50_boards_11.sav");
 			ObjectInputStream oisTest4 = new ObjectInputStream(fisTest4);
 			boardCollectionTest4 = (Board[]) oisTest4.readObject();
+			oisTest4.close();
 		} catch(Exception e) {
 			System.err.println("Error" + e.getMessage());
 		}
@@ -1148,6 +1152,7 @@ public class GigaTest4 {
 			FileInputStream fisTest5 = new FileInputStream("50_boards_11.sav");
 			ObjectInputStream oisTest5 = new ObjectInputStream(fisTest5);
 			boardCollectionTest5 = (Board[]) oisTest5.readObject();
+			oisTest5.close();
 		} catch(Exception e) {
 			System.err.println("Error" + e.getMessage());
 		}
@@ -1416,6 +1421,7 @@ public class GigaTest4 {
 			FileInputStream fisTest6 = new FileInputStream("50_boards_11.sav");
 			ObjectInputStream oisTest6 = new ObjectInputStream(fisTest6);
 			boardCollectionTest6 = (Board[]) oisTest6.readObject();
+			oisTest6.close();
 		} catch(Exception e) {
 			System.err.println("Error" + e.getMessage());
 		}
