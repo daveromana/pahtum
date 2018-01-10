@@ -1420,7 +1420,7 @@ public class GigaTest1 {
 			FileInputStream fisTest6 = new FileInputStream("50_boards_3.sav");
 			ObjectInputStream oisTest6 = new ObjectInputStream(fisTest6);
 			boardCollectionTest6 = (Board[]) oisTest6.readObject();
-			fisTest6.close();
+			oisTest6.close();
 		} catch(Exception e) {
 			System.err.println("Error" + e.getMessage());
 		}
