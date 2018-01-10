@@ -82,38 +82,38 @@ public class MonteCarloH5 {
 	 * @return A new node.
 	 * @throws Exception I don't remember. It has never occurred.
 	 */
-	private Node treePolicy(Node node, Board board) throws Exception {
+	private Node treePolicy(Node node_treePolicy, Board treePolicy_board) throws Exception {
 		//While node is not a terminal state apply Tree Policy. Terminal state 
 		//is the same as fully populated board.
-		int numberNode = node.getMoveNumber() ;
+		int numberNode = node_treePolicy.getMoveNumber() ;
 		while(numberNode < this.allMovesNumber) {
 			//Check if node is fully expanded.
-			if(node.getUntriedMoves().size() != 0) {
+			if(node_treePolicy.getUntriedMoves().size() != 0) {
 				//Not fully expanded. Return a newly created node.
-				Node newNode =  node.expand(board, this.color);
-				numberNode = node.getMoveNumber() ;
+				Node newNode =  node_treePolicy.expand(treePolicy_board, this.color);
+				numberNode = node_treePolicy.getMoveNumber() ;
 				return newNode;
 			} else {
 				//Node is fully expanded. Get color of currently investigated 
 				//node.
-				String color = node.getColor();
+				String color = node_treePolicy.getColor();
 				
 				//Select a child for which Tree Policy would be applied again. 
 				//bestChild method relies on Boltzmann's distribution and it 
 				//non-deterministic.
 				try {
-					node = bestChild(node, this.c);
+					node_treePolicy = bestChild(node_treePolicy, this.c);
 				} catch(Exception e) {
 					//Node is a terminal state.
-					return node;
+					return node_treePolicy;
 				}
 				
 				//Update a board of a move from selected node.
-				board.makeMove(node.getMove(), color);
-				numberNode = node.getMoveNumber() ;
+				treePolicy_board.makeMove(node_treePolicy.getMove(), color);
+				numberNode = node_treePolicy.getMoveNumber() ;
 			}
 		}
-		return node;
+		return node_treePolicy;
 	}
 	
 	/**
@@ -125,10 +125,10 @@ public class MonteCarloH5 {
 	 * @return winning side: "w" for white, "b" for black, "0" for draw.
 	 * @throws Exception I don't remember. It has never occurred.
 	 */
-	private String defaultPolicy(Node node, Board board) throws Exception {
+	private String defaultPolicy(Node node_policy, Board board_policy) throws Exception {
 		Random generator = new Random();
-		String color = node.getColor();
-		int moveNumber = node.getMoveNumber();
+		String color = node_policy.getColor();
+		int moveNumber = node_policy.getMoveNumber();
 		String w = "w";
 
 		//Check if terminal state hasn't been reached. If not play next move.
@@ -139,14 +139,14 @@ public class MonteCarloH5 {
 			if(color.equals(this.color)) {
 				//Narrow list of valid moves to the best 5 in accordance to the 
 				//heuristic evaluation.
-				listValidMoves = board.heuristic_bestX_moves(color, 5);
+				listValidMoves = board_policy.heuristic_bestX_moves(color, 5);
 			} else {
 				//Provide a list of all valid moves.
-				listValidMoves = board.getListValidMoves();
+				listValidMoves = board_policy.getListValidMoves();
 			}
 			
 			//Select at random from given selection a move, and make it.
-			board.makeMove(listValidMoves.get(generator.nextInt(
+			board_policy.makeMove(listValidMoves.get(generator.nextInt(
 					listValidMoves.size())), color);
 			
 			//Switch the colors.
@@ -159,7 +159,7 @@ public class MonteCarloH5 {
 			//Increment the move's counter.
 			++moveNumber;
 		}
-		return Rules.calculateScore(board);
+		return Rules.calculateScore(board_policy);
 	}
 	
 	/**
@@ -203,12 +203,12 @@ public class MonteCarloH5 {
 	 * @param c Constant C (when =0 the the most robust child is selected).
 	 * @return Best node.
 	 */
-	private Node bestChild(Node node, double c) {
+	private Node bestChild(Node node_b_c, double d_c) {
 		Node bestChild = null;
 		double tempScore = -1;
-		for(Node child: node.getChildren()) {
+		for(Node child: node_b_c.getChildren()) {
 			double score = (child.getValue() / child.getVisit()) + 
-					(c * Math.sqrt((2 * Math.log(node.getVisit())) / 
+					(d_c * Math.sqrt((2 * Math.log(node_b_c.getVisit())) / 
 							(child.getVisit())));
 			if(score >= tempScore) {
 				bestChild = child;

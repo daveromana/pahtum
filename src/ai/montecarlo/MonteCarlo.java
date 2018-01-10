@@ -79,33 +79,33 @@ public class MonteCarlo {
 	 * @return A new node.
 	 * @throws Exception Exception I don't remember. It has never occurred.
 	 */
-	private Node treePolicy(Node node, Board board) throws Exception {
+	private Node treePolicy(Node tree_node, Board tree_board) throws Exception {
 		//While node is not a terminal state apply Tree Policy. Terminal state 
 		//is the same as fully populated board.
-		int numberNode = node.getMoveNumber() ;
+		int numberNode = tree_node.getMoveNumber() ;
 		while(numberNode < this.allMovesNumber) {
 			//Check if node is fully expanded.
-			if(node.getUntriedMoves().size() != 0) {
+			if(tree_node.getUntriedMoves().size() != 0) {
 				//Not fully expanded. Return a newly created node.
-				Node newNode =  node.expand(board);
-				numberNode = node.getMoveNumber() ;
+				Node newNode =  tree_node.expand(tree_board);
+				numberNode = tree_node.getMoveNumber() ;
 				return newNode;
 			} else {
 				//Node is fully expanded. Get color of currently investigated 
 				//node.
-				String color = node.getColor();
+				String color = tree_node.getColor();
 				
 				//Select a child for which Tree Policy would be applied again. 
 				//bestChild method relies on Boltzmann's distribution and it 
 				//non-deterministic.
-				node = bestChild(node, this.c);
+				tree_node = bestChild(tree_node, this.c);
 				
 				//Update a board of a move from selected node.
-				board.makeMove(node.getMove(), color);
-				numberNode = node.getMoveNumber() ;
+				tree_board.makeMove(tree_node.getMove(), color);
+				numberNode = tree_node.getMoveNumber() ;
 			}
 		}
-		return node;
+		return tree_node;
 	}
 	
 	/**
@@ -117,18 +117,18 @@ public class MonteCarlo {
 	 * @return winning side: "w" for white, "b" for black, "0" for draw.
 	 * @throws Exception Exception I don't remember. It has never occurred.
 	 */
-	private String defaultPolicy(Node node, Board board) throws Exception {
+	private String defaultPolicy(Node no_de, Board board_policy) throws Exception {
 		Random generator = new Random();
-		String color = node.getColor();
-		int moveNumber = node.getMoveNumber();
+		String color = no_de.getColor();
+		int moveNumber = no_de.getMoveNumber();
 		String w = "w";
 		
 		//Check if terminal state hasn't been reached. If not play next move.
 		while(moveNumber < this.allMovesNumber) {
 			//Get list of all valid moves.
-			List<Tuple<Integer, Integer>> listValidMoves = board.getListValidMoves();
+			List<Tuple<Integer, Integer>> listValidMoves = board_policy.getListValidMoves();
 			//Pick one at random.
-			board.makeMove(listValidMoves.get(generator.nextInt(listValidMoves.size())), color);
+			board_policy.makeMove(listValidMoves.get(generator.nextInt(listValidMoves.size())), color);
 			//Switch the colors.
 			String sw = "w";
 			
@@ -141,7 +141,7 @@ public class MonteCarlo {
 			++moveNumber;
 		}
 		//The simulation has finished, calculate the score.
-		return Rules.calculateScore(board);
+		return Rules.calculateScore(board_policy);
 	}
 	
 	/**
@@ -188,15 +188,15 @@ public class MonteCarlo {
 	 * robust child is selected. 
 	 * @return Child node.
 	 */
-	private Node bestChild(Node node, double c) {
+	private Node bestChild(Node node_bc, double bc_c) {
 		Node bestChild = null;
 		double tempScore = -1;
 		
 		//Check all children, one by one.
-		for(Node child: node.getChildren()) {
+		for(Node child: node_bc.getChildren()) {
 			//Calculate the score for current child.
 			double score = (child.getValue() / child.getVisit()) + 
-					(c * Math.sqrt((2 * Math.log(node.getVisit())) / 
+					(bc_c * Math.sqrt((2 * Math.log(node_bc.getVisit())) / 
 							(child.getVisit())));
 			
 			//If the score is better than the previous best update current best 
