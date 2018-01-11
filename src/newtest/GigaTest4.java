@@ -124,6 +124,7 @@ public static void testOne () throws Exception {
 
 			//Load board.
 			try {
+				
 				FileInputStream fisTest1 = new FileInputStream("50_boards_11.sav");
 				ObjectInputStream oisTest1 = new ObjectInputStream(fisTest1);
 				boardCollectionTest1 = (Board[]) oisTest1.readObject();

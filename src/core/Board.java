@@ -117,7 +117,6 @@ public class Board implements Serializable{
 
 			ByteArrayInputStream bais = new ByteArrayInputStream(byteData);
 			replica = (Board) new ObjectInputStream(bais).readObject();
-			bais.reset();
 		} catch(Exception e) { e.printStackTrace(); }
 		return replica;
 	}
