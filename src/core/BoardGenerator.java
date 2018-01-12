@@ -5,6 +5,12 @@ import java.io.ObjectOutputStream;
 
 import core.Board;
 
+/**
+ * Classe relativa al BoardGenerator
+ * @author Mina
+ *
+ */
+
 public class BoardGenerator {
 
 	/**
@@ -26,7 +32,7 @@ public class BoardGenerator {
 			oos.close();
 		} catch(Exception e) {
 			System.err.println("Error occured during saving.");
-			e.printStackTrace();
+			System.out.println("Something was wrong");
 		}
 	}
 

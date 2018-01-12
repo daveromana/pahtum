@@ -276,6 +276,15 @@ public class MonteCarloHBoltzmann implements Engine {
 
 		//Select which child is associated with a range that satisfies randomly 
 		//picked number.
+		selectedChild =	pickedNumber  (organizedChildren,  randomNumber
+				, bestFitProb,  selectedChild);
+		//Return selected child.
+		return selectedChild;
+	}
+	
+	private  Node pickedNumber (List<Tuple<Double, Node>> organizedChildren, double randomNumber
+			,double bestFitProb, Node selectedChild) {
+		
 		for(Tuple<Double, Node> item : organizedChildren) {
 			if(randomNumber < item.getFirstElement()) {
 				if(item.getFirstElement() < bestFitProb) {
@@ -285,7 +294,6 @@ public class MonteCarloHBoltzmann implements Engine {
 			}
 		}
 		
-		//Return selected child.
 		return selectedChild;
 	}
 }
