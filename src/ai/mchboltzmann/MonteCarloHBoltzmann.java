@@ -236,10 +236,7 @@ public class MonteCarloHBoltzmann implements Engine {
 			for(Node kid : node.getChildren()) {
 				sum += Math.exp(kid.getPotential() / t);
 			}
-			if(child.getProbability() == -1) {
-				child.setProbability((Math.exp(child.getPotential() / t)) / 
-						(sum));
-			}
+			yChildValue (child, sum,  t);
 		}//end X.
 		
 		//Y. Organize nodes in a list.
@@ -296,4 +293,13 @@ public class MonteCarloHBoltzmann implements Engine {
 		
 		return selectedChild;
 	}
+	
+	private  void yChildValue (Node child, double sum, double t) {
+		
+		if(child.getProbability() == -1) {
+			child.setProbability((Math.exp(child.getPotential() / t)) / 
+					(sum));
+		}
+	}
+	
 }
