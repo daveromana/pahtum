@@ -144,12 +144,12 @@ public class Board implements Serializable{
 		boolean case_1 = true, case_2 = true, case_3 = true, case_4 = true;
 		int horizontal_adjustment = 1, vertical_adjustment = 1;
 		// (-,0) direction. 
-		try {
+		
 			 try_1 (board,  index_x,  index_y,
 					color,  case_1,  potential,  distance,
 					 vertical_adjustment);
 			
-		} catch(Exception e) { }
+		
 
 		// (0,-) direction.
 		index_x = x;
@@ -1153,7 +1153,7 @@ public class Board implements Serializable{
 			String color, boolean case_2, int potential, int distance,
 			int horizontal_adjustment) {
 		
-
+		try {
 		boolean equalsE12, equalsColor12;
 		equalsE12 = board[index_x][index_y - 1].equals("e");
 		equalsColor12 = board[index_x][index_y - 1].equals(color);
@@ -1174,14 +1174,16 @@ public class Board implements Serializable{
 			equalsE12 = board[index_x][index_y - 1].equals("e");
 			equalsColor12 = board[index_x][index_y - 1].equals(color);
 		}
+		}	catch(Exception e) { }
 	
-	}
+	
+		}
 	
 	public void try_1 (String[][] board, int index_x, int index_y,
 			String color, boolean case_1, int potential, int distance,
 			int vertical_adjustment) { 
-		
-		boolean equalsE14, equalsColor14;
+		try {
+			boolean 	equalsE14, equalsColor14;
 		equalsE14 = board[index_x - 1][index_y].equals("e");
 		equalsColor14 = board[index_x - 1][index_y].equals(color);
 		while(equalsE14 || 
@@ -1201,12 +1203,13 @@ public class Board implements Serializable{
 			equalsE14 = board[index_x - 1][index_y].equals("e");
 			equalsColor14 = board[index_x - 1][index_y].equals(color);
 		}
+		} catch(Exception e) { }
 		
 	}
 	public void try_3 (String[][] board, int index_x, int index_y,
 			String color, boolean case_3, int potential, int distance,
 			int horizontal_adjustment) { 
-		
+		try {
 		boolean equalsE13, equalsColor13;
 		equalsE13 = board[index_x][index_y + 1].equals("e");
 		equalsColor13 = board[index_x][index_y + 1].equals(color);
@@ -1226,13 +1229,14 @@ public class Board implements Serializable{
 			++index_y;
 			equalsE13 = board[index_x][index_y + 1].equals("e");
 			equalsColor13 = board[index_x][index_y + 1].equals(color);
-		}
+			}
+		}catch(Exception e) { }
 		
 	}
 	public void try_4 (String[][] board, int index_x, int index_y,
 			String color, boolean case_4, int potential, int distance,
 			int vertical_adjustment) {
-		
+		try {
 		boolean equalsE11, equalsColor11;
 		equalsE11 = board[index_x + 1][index_y].equals("e");
 		equalsColor11 = board[index_x + 1][index_y].equals(color);
@@ -1252,19 +1256,22 @@ public class Board implements Serializable{
 			++index_x;
 			equalsE11 = board[index_x + 1][index_y].equals("e");
 			equalsColor11 = board[index_x + 1][index_y].equals(color);
-		}
+			}
+		}catch(Exception e) { }
 		
 	}
 	
 	public void try_5 (String[][] board,int index_x, int index_y , 
 			String enemyColor, int enemy_adjustment_x  ) {
-		
+		try {
 		boolean enemyColor12 = board[index_x - 1][index_y].equals(enemyColor);
 		while(enemyColor12) {
 			++enemy_adjustment_x;
 			--index_x;
 			enemyColor12 = board[index_x - 1][index_y].equals(enemyColor);
 		}
+		}
+		catch(Exception e) { }
 		
 	}
 	
@@ -1281,22 +1288,27 @@ public class Board implements Serializable{
 	
 	public void try_7 (String[][] board,int index_x, int index_y , 
 			String enemyColor, int enemy_adjustment_y  ) {
+		try {
 		boolean enemyColor10 = board[index_x][index_y - 1].equals(enemyColor);
 		while(enemyColor10) {
 			++enemy_adjustment_y;
 			--index_y;
 			enemyColor10 = board[index_x][index_y - 1].equals(enemyColor);
-		}
+			}
+		}catch(Exception e) { }
 	}
 	
 	public void try_8 (String[][] board,int index_x, int index_y , 
 			String enemyColor, int enemy_adjustment_y  ) {
-		boolean enemyColor9 = board[index_x][index_y + 1].equals(enemyColor);
+		try {
+			boolean enemyColor9 = board[index_x][index_y + 1].equals(enemyColor);
 		while(enemyColor9) {
 			++enemy_adjustment_y;
 			++index_y;
 			enemyColor9 = board[index_x][index_y + 1].equals(enemyColor);
+			}
 		}
+		catch(Exception e) { }
 		
 	}
 	
@@ -1311,5 +1323,7 @@ public class Board implements Serializable{
 
 		
 	}
+	
+	
 
 }
