@@ -17,7 +17,7 @@ import util.Tuple;
  */
 public class Node {
 	private Tuple<Integer, Integer> move;	//Move associated with the node.
-	private int potential_t100;					//Potential of the node.
+	private int potential;					//Potential of the node.
 	private double probability;				//Probability of the node.
 	private String color;					//Color of the move associated to 
 	//this node.
@@ -58,7 +58,7 @@ public class Node {
 		
 		//Update potential.
 		if(move != null) {
-			this.potential_t100 = board.getHeuristicValue(
+			this.potential = board.getHeuristicValue(
 					move.getFirstElement(), 
 					move.getSecondElement(), 
 					color.equals(w) ? b : w);
@@ -74,11 +74,11 @@ public class Node {
 	}
 	
 	public void setPotential(int value) {
-		this.potential_t100 = value;
+		this.potential = value;
 	}
 	
 	public int getPotential() {
-		return this.potential_t100;
+		return this.potential;
 	}
 
 	/**
