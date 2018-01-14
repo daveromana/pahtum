@@ -134,14 +134,14 @@ public class MonteCarloH5Boltzmann_t100 implements Engine {
 		int moveNumber = defaultPolicy_node.getMoveNumber();
 		String w = "w";
 		String b = "b";
-
+		int valuebo_t100_5 = 5;
 		//Check if terminal state hasn't been reached. If not play next move.
 		while(moveNumber < this.allMovesNumber) {
 			List<Tuple<Integer, Integer>> listValidMoves;
 			
 			//Narrow list of valid moves to the best 5 in accordance to the 
 			//heuristic function.
-			listValidMoves = defaultPolicy_board.heuristic_bestX_moves(color, 5);
+			listValidMoves = defaultPolicy_board.heuristic_bestX_moves(color, valuebo_t100_5);
 			
 			//Select at random from given selection a move, and make it.
 			defaultPolicy_board.makeMove(listValidMoves.get(generator.nextInt(

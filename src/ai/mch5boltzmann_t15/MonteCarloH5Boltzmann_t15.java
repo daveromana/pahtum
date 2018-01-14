@@ -134,14 +134,14 @@ public class MonteCarloH5Boltzmann_t15 implements Engine {
 		int moveNumber = no_de.getMoveNumber();
 		String w = "w";
 		String b = "b";
-
+		int valuebo_t15_5 = 5;
 		//Check if terminal state hasn't been reached. If not play next move.
 		while(moveNumber < this.allMovesNumber) {
 			List<Tuple<Integer, Integer>> listValidMoves;
 			
 			//Narrow list of valid moves to the best 5 in accordance to the 
 			//heuristic function.
-			listValidMoves = board_dp.heuristic_bestX_moves(color, 5);
+			listValidMoves = board_dp.heuristic_bestX_moves(color, valuebo_t15_5);
 			
 			//Select at random from given selection a move, and make it.
 			board_dp.makeMove(listValidMoves.get(generator.nextInt(
