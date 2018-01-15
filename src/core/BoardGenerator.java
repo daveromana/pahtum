@@ -36,7 +36,7 @@ public class BoardGenerator {
 		try {
 			
 			oos.writeObject(boardCollection);
-			oos.close();
+			
 		
 		} catch(Exception e) {
 			System.err.println("Error occured during saving.");
