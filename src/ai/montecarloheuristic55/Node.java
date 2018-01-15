@@ -22,6 +22,7 @@ public class Node {
 	private List<Node> children;
 	private List<Tuple<Integer, Integer>> untriedMoves;
 	
+	
 	/**
 	 * 
 	 * @param parent

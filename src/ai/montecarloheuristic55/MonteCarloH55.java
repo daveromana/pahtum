@@ -53,6 +53,7 @@ public class MonteCarloH55 {
 			String delta = defaultPolicy(node, tempBoard);
 			back_up(node, delta);
 			--n;
+			
 		}
 		return bestChild(root.getRoot(), 0).getMove();
 	}
