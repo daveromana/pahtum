@@ -67,7 +67,7 @@ public class MonteCarloH55 {
 		int numberNode = treePolicy_node.getMoveNumber();
 		while(numberNode < this.allMovesNumber) {
 			if(treePolicy_node.getUntriedMoves().size() != 0) {
-				Node newNode =  treePolicy_node.expand(treePolicy_board, this.color);
+				Node newNode =  treePolicy_node.expand(treePolicy_board);
 				numberNode = treePolicy_node.getMoveNumber();
 				return newNode;
 			} else {

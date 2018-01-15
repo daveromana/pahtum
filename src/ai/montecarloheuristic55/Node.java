@@ -50,7 +50,7 @@ public class Node {
 	 * @return
 	 * @throws Exception
 	 */
-	public Node expand(Board board, String mcColor){
+	public Node expand(Board board){
 		String newColor;
 		Random generator = new Random();
 		int randomIndex = generator.nextInt(this.untriedMoves.size());

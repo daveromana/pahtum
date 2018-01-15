@@ -2,6 +2,7 @@ package core;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
@@ -103,14 +104,13 @@ public class Board implements Serializable{
 			ByteArrayOutputStream bos = new ByteArrayOutputStream();
 			ObjectOutputStream oos = new ObjectOutputStream(bos);
 			oos.writeObject(this);
-			oos.flush();
-			oos.close();
+			
 			
 			byte [] byteData = bos.toByteArray();
 			bos.close();
 			ByteArrayInputStream bais = new ByteArrayInputStream(byteData);
 			replica = (Board) new ObjectInputStream(bais).readObject();
-			bais.close();
+			bais.reset(); bais.close();
 		} catch(Exception e) { 
 			
 			System.out.println("Something was wrong");  
