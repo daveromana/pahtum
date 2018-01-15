@@ -47,7 +47,6 @@ public class Node {
 		this.parent = parent;
 		this.probability = -1;
 		this.value = 0;
-		this.visit = 0;
 		this.children = new ArrayList<Node>();
 		this.untriedMoves = board.getListValidMoves();
 		this.moveNumber = moveNumber;
@@ -104,6 +103,7 @@ public class Node {
 		try {
 			board.makeMove(move, color);
 		} catch (Exception e) {
+			System.out.println("There's an error"); 
 			//Doesn't happen.
 		}
 		

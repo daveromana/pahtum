@@ -38,9 +38,11 @@ public class BoardGenerator {
 			oos.writeObject(boardCollection);
 			
 		
+			fos.flush();
 		} catch(Exception e) {
 			System.err.println("Error occured during saving.");
 			System.out.println("Something was wrong");
+<<<<<<< .mine
 		}finally {
 	           if (oos != null) {
 	               try {
@@ -50,6 +52,13 @@ public class BoardGenerator {
 	               }
 	}
 		}
+||||||| .r42
+		}
+=======
+		}finally {
+	                 System.out.println("I/O Exception");
+	               }
+>>>>>>> .r47
 	}
 	}
 
