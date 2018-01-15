@@ -42,9 +42,9 @@ public class BoardGenerator {
 			System.err.println("Error occured during saving.");
 			System.out.println("Something was wrong");
 		}finally {
-	           if (fos != null) {
+	           if (oos != null) {
 	               try {
-	                 fos.close (); 
+	                 oos.close (); 
 	               } catch (java.io.IOException e3) {
 	                 System.out.println("I/O Exception");
 	               }
