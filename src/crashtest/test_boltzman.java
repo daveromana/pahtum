@@ -82,32 +82,18 @@ public class test_boltzman {
 		int totalNumberOfMovesTest1 = 46;
 		
 		//Load board.
-		FileInputStream fisTest1 = new FileInputStream("50_boards_3.sav");
-		ObjectInputStream oisTest1 = new ObjectInputStream(fisTest1);
 		try {
-			
+			FileInputStream fisTest1 = new FileInputStream("50_boards_3.sav");
+			ObjectInputStream oisTest1 = new ObjectInputStream(fisTest1);
 			boardCollectionTest1 = (Board[]) oisTest1.readObject();
-			
+			oisTest1.close();
+			fisTest1.close();
 		} catch(Exception e) {
-			oisTest1.readObject();
 			System.err.println("Error" + e.getMessage());
-<<<<<<< .mine
-		} finally {
-			if (oisTest1 !=null) {
-				oisTest1.close();
-			}
-			
-			
-		}
-||||||| .r42
-		}
-=======
 		}finally {
             System.out.println("I/O Exception");
           }
->>>>>>> .r47
-	
-		 
+
 		//The beginning and the end of the test.
 		 
 		//Report when games commenced.
