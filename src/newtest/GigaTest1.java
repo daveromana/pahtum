@@ -73,26 +73,9 @@ public class GigaTest1 {
 		
 	}
 
-public static Integer maxCast (int a){
-	
-	Integer valInteger = (Integer) a; 
-		
-	return valInteger;
-	}
-	
-public static void newRandomBoardOne (int testIndex, Board boardTest, 
-		Board[] boardCollectionTest, Board initialPositionTest1) {
-	if(testIndex % 2 == 1) {
-		//Load a new board.
-		boardTest = boardCollectionTest[(Integer) testIndex/2];
-		initialPositionTest1 = extracted(boardTest).duplicate();
-	} else {
-		//Reset the board.
-		boardTest = extracted(initialPositionTest1).duplicate();
-	}
 
 	
-}
+
 
 public static void testOne1 () throws Exception {
 	//Statistical variables.
@@ -150,10 +133,10 @@ public static void testOne1 () throws Exception {
 
 	//Report when games commenced.
 	startTime = System.currentTimeMillis();
-	String nameFile1 = "results_20k_3b_MCTS_UCTvMCTS_H(5).txt";
+	String name1File1 = "results_20k_3b_MCTS_UCTvMCTS_H(5).txt";
 	//Define buffers.
-	BufferedWriter outputTest1 = null;
-	defineBuffers ( outputTest1, nameFile1);
+	BufferedWriter temporany = null;
+	BufferedWriter outputTest1 = defineBuffers ( temporany,  name1File1);
 	
 	MonteCarlo mc_t1 = new MonteCarlo(
 			extracted(boardTest1).duplicate(), 
@@ -260,8 +243,8 @@ public static void testOne1 () throws Exception {
 	//Report when games ended.
 	int value1_gt1_1000 = 1000;
 	
-	BufferedWriter output1Test1 = null;
-	defineBuffers ( output1Test1,  nameFile1);
+	 temporany = null;
+	BufferedWriter output1Test1 = defineBuffers ( temporany,  name1File1);
 	
 	output1Test1.append("========================================");
 	output1Test1.newLine();
@@ -316,39 +299,7 @@ private static Board extracted(Board boardTest1) {
 
 
 
-public static void OneSideWinsTheGame (String gameOutcome, Player[] playersTest1 
-		,BufferedWriter outputTest1, boolean value, int e1TotalWins,
-		int e2TotalLoses,int e1WinAsPlayer2, int e2LoseAsPlayer1,
-		int e2TotalWins, int e1TotalLoses, int e2WinAsPlayer2, int e1LoseAsPlayer1, String phrase ) throws IOException {
-	//One side wins the game.
-	if(gameOutcome.equals(playersTest1[0].getColor())) {
-		//Player #1, whoever it is, wins the game.
 
-		//Add note about the winner to the file.
-		outputTest1.append("Result: " + playersTest1[0].getName() + " wins");
-
-		//Update statistics.
-		boolean valuePlayers1 = playersTest1[0].getName().equals(phrase);
-		updateStatisticsB1 ( valuePlayers1,  e1TotalWins,
-				 e2TotalLoses, e1WinAsPlayer2,  e2LoseAsPlayer1,
-				 e2TotalWins,  e1TotalLoses,  e2WinAsPlayer2,  e1LoseAsPlayer1);
-
-	} else {
-		//Player #2, whoever it is, wins the game.
-
-		//Add note about the winner to the file.
-		outputTest1.append("Result: " + playersTest1[1].getName() + " wins");
-
-		//Update statistics.
-		boolean valuePlayers1 = playersTest1[1].getName().equals(phrase);
-		updateStatisticsB1 ( valuePlayers1,  e1TotalWins,
-				 e2TotalLoses, e1WinAsPlayer2,  e2LoseAsPlayer1,
-				 e2TotalWins,  e1TotalLoses,  e2WinAsPlayer2,  e1LoseAsPlayer1);
-	}
-	outputTest1.newLine();
-	outputTest1.close();
-	
-}
 
 public static void testTwo1 () throws Exception {
 	
@@ -406,10 +357,10 @@ public static void testTwo1 () throws Exception {
 
 	//Report when games commenced.
 	startTimeTest2 = System.currentTimeMillis();
-	String nameFile2 = "results_20k_3b_MCTS_UCTvMCTS_H(7).txt";
+	String name1File2 = "results_20k_3b_MCTS_UCTvMCTS_H(7).txt";
 	//Define buffers.
-	BufferedWriter outputTest2 = null;
-	defineBuffers ( outputTest2, nameFile2);
+	BufferedWriter temporany = null;
+	BufferedWriter outputTest2 = defineBuffers ( temporany,  name1File2);
 	//Define buffers.
 	
 	Board boardTest22 = extracted(boardTest2);
@@ -517,8 +468,8 @@ public static void testTwo1 () throws Exception {
 	//Report when games ended.
 	int value2_gt1_1000 = 1000;
 	//Append total outcome of the test case to the file.
-	BufferedWriter output1Test2 = null;	
-	defineBuffers ( output1Test2,  nameFile2);
+	 temporany = null;
+	BufferedWriter output1Test2 = defineBuffers ( temporany,  name1File2);
 	
 	output1Test2.append("========================================");
 	output1Test2.newLine();
@@ -565,6 +516,7 @@ public static void testTwo1 () throws Exception {
 	output1Test2.close();
 	
 }
+
 
 
 
@@ -626,10 +578,10 @@ public static void testThree1 () throws Exception {
 
 	//Report when games commenced.
 	startTimeTest3 = System.currentTimeMillis();
-	String nameFile3 = "results_20k_3b_MCTS_UCTvMCTS_H(10).txt";
+	String name1File3 = "results_20k_3b_MCTS_UCTvMCTS_H(10).txt";
 	//Define buffers.
-	BufferedWriter outputTest3 = null;
-	defineBuffers ( outputTest3, nameFile3);
+	BufferedWriter temporany = null;
+	BufferedWriter outputTest3 = defineBuffers ( temporany,  name1File3);
 	
 	
 	MonteCarloH10 h10_mc = new MonteCarloH10(
@@ -738,8 +690,8 @@ public static void testThree1 () throws Exception {
 	//Report when games ended.
 	int value3_gt1_1000 = 1000;
 	//Append total outcome of the test case to the file.
-	BufferedWriter output1Test3 = null;	
-	defineBuffers ( output1Test3,  nameFile3);
+	 temporany = null;
+	BufferedWriter output1Test3 = defineBuffers ( temporany,  name1File3);
 	
 	output1Test3.append("========================================");
 	output1Test3.newLine();
@@ -786,6 +738,7 @@ public static void testThree1 () throws Exception {
 	output1Test3.close();
 	
 }
+
 
 
 public static void testFour1() throws Exception {
@@ -844,10 +797,10 @@ public static void testFour1() throws Exception {
 
 	//Report when games commenced.
 	startTimeTest4 = System.currentTimeMillis();
-	String nameFile4 = "results_20k_3b_MCTS_UCTvMCTS_H(5+5).txt";
+	String name1File4 = "results_20k_3b_MCTS_UCTvMCTS_H(5+5).txt";
 	//Define buffers.
-	BufferedWriter outputTest4 = null;
-	defineBuffers ( outputTest4, nameFile4);
+	BufferedWriter temporany = null;
+	BufferedWriter outputTest4 = defineBuffers ( temporany,  name1File4);
 	
 	MonteCarloH55 mch55 = new MonteCarloH55(
 			extracted(boardTest4).duplicate(), 
@@ -957,8 +910,8 @@ public static void testFour1() throws Exception {
 	//Report when games ended.
 	int value4_gt1_1000 = 1000;
 	//Append total outcome of the test case to the file.
-	BufferedWriter output1Test4 = null;	
-	defineBuffers ( output1Test4,  nameFile4);
+	 temporany = null;
+	BufferedWriter output1Test4 = defineBuffers ( temporany,  name1File4);
 	
 	output1Test4.append("========================================");
 	output1Test4.newLine();
@@ -1007,6 +960,7 @@ public static void testFour1() throws Exception {
 	
 	
 }
+
 
 
 public static void testFive1() throws Exception {
@@ -1066,10 +1020,10 @@ public static void testFive1() throws Exception {
 
 	//Report when games commenced.
 	startTimeTest5 = System.currentTimeMillis();
-	String nameFile5 = "results_20k_3b_MCTS_H(5)vMCTS_H(7).txt";
+	String name1File5 = "results_20k_3b_MCTS_H(5)vMCTS_H(7).txt";
 	//Define buffers.
-	BufferedWriter outputTest5 = null;
-	defineBuffers ( outputTest5, nameFile5);
+	BufferedWriter temporany = null;
+	BufferedWriter outputTest5 = defineBuffers ( temporany,  name1File5);
 	
 	
 	MonteCarloH7 h7mc = new MonteCarloH7(
@@ -1181,8 +1135,9 @@ public static void testFive1() throws Exception {
 
 	int value5_gt1_1000 = 1000;
 	//Append total outcome of the test case to the file.
-	BufferedWriter output1Test5 = null;	
-	defineBuffers ( output1Test5,  nameFile5);
+
+	 temporany = null;
+	BufferedWriter output1Test5 = defineBuffers ( temporany,  name1File5);
 	
 	output1Test5.append("========================================");
 	output1Test5.newLine();
@@ -1229,6 +1184,7 @@ public static void testFive1() throws Exception {
 	output1Test5.close();
 	
 }
+
 
 
 
@@ -1291,10 +1247,10 @@ public static void testSix1 () throws Exception {
 
 	//Report when games commenced.
 	startTimeTest6 = System.currentTimeMillis();
-	String nameFile6 = "results_20k_3b_MCTS_H(7)vMCTS_H(10).txt";
+	String name1File6 = "results_20k_3b_MCTS_H(7)vMCTS_H(10).txt";
 	//Define buffers.
-	BufferedWriter outputTest6 = null;
-	defineBuffers ( outputTest6, nameFile6);
+	BufferedWriter temporany = null;
+	BufferedWriter outputTest6 = defineBuffers ( temporany,  name1File6);
 	
 			MonteCarloH7 mc_h7 = new MonteCarloH7(
 					extracted(boardTest6).duplicate(), 
@@ -1404,8 +1360,9 @@ public static void testSix1 () throws Exception {
 	//Report when games ended.
 	int value6_gt1_1000 = 1000;
 	//Append total outcome of the test case to the file.
-	BufferedWriter output1Test6 = null;	
-	defineBuffers ( output1Test6,  nameFile6);
+	 temporany = null;
+	BufferedWriter output1Test6 = defineBuffers ( temporany,  name1File6);	
+	
 	
 	
 	output1Test6.append("========================================");
@@ -1511,7 +1468,7 @@ public static void loadBoard (Board[] boardCollectionTest1, String nameBoard) {
 		}
 	}
 
-public static  void defineBuffers (BufferedWriter output1Test, String nameFile) {
+public static  BufferedWriter defineBuffers (BufferedWriter output1Test, String nameFile) {
 	
 	try {
 	 output1Test = new BufferedWriter(
@@ -1528,9 +1485,61 @@ public static  void defineBuffers (BufferedWriter output1Test, String nameFile) 
                }	
            }
 	}
+	return output1Test;
+}
+public static Integer maxCast (int a){
+	
+	Integer valInteger = (Integer) a; 
+		
+	return valInteger;
+	}
+
+public static void newRandomBoardOne (int testIndex, Board boardTest, 
+		Board[] boardCollectionTest, Board initialPositionTest1) {
+	if(testIndex % 2 == 1) {
+		//Load a new board.
+		boardTest = boardCollectionTest[(Integer) testIndex/2];
+		initialPositionTest1 = extracted(boardTest).duplicate();
+	} else {
+		//Reset the board.
+		boardTest = extracted(initialPositionTest1).duplicate();
+	}
+
 	
 }
+public static void OneSideWinsTheGame (String gameOutcome, Player[] playersTest1 
+		,BufferedWriter outputTest1, boolean value, int e1TotalWins,
+		int e2TotalLoses,int e1WinAsPlayer2, int e2LoseAsPlayer1,
+		int e2TotalWins, int e1TotalLoses, int e2WinAsPlayer2, int e1LoseAsPlayer1, String phrase ) throws IOException {
+	//One side wins the game.
+	if(gameOutcome.equals(playersTest1[0].getColor())) {
+		//Player #1, whoever it is, wins the game.
 
+		//Add note about the winner to the file.
+		outputTest1.append("Result: " + playersTest1[0].getName() + " wins");
+
+		//Update statistics.
+		boolean valuePlayers1 = playersTest1[0].getName().equals(phrase);
+		updateStatisticsB1 ( valuePlayers1,  e1TotalWins,
+				 e2TotalLoses, e1WinAsPlayer2,  e2LoseAsPlayer1,
+				 e2TotalWins,  e1TotalLoses,  e2WinAsPlayer2,  e1LoseAsPlayer1);
+
+	} else {
+		//Player #2, whoever it is, wins the game.
+
+		//Add note about the winner to the file.
+		outputTest1.append("Result: " + playersTest1[1].getName() + " wins");
+
+		//Update statistics.
+		boolean valuePlayers1 = playersTest1[1].getName().equals(phrase);
+		updateStatisticsB1 ( valuePlayers1,  e1TotalWins,
+				 e2TotalLoses, e1WinAsPlayer2,  e2LoseAsPlayer1,
+				 e2TotalWins,  e1TotalLoses,  e2WinAsPlayer2,  e1LoseAsPlayer1);
+	}
+	outputTest1.newLine();
+	outputTest1.close();
+	
+}
 
 
 }

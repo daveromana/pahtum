@@ -142,8 +142,8 @@ public static void testOne () throws Exception {
 			startTime = System.currentTimeMillis();
 			String name4File1 = "results_50k_11b_MCTS_UCTvMCTS_H(5).txt";
 			//Define buffers.
-			BufferedWriter outputTest1 = null;
-			defineBuffers ( outputTest1, name4File1);
+			BufferedWriter temporany = null;
+			BufferedWriter outputTest1 = defineBuffers ( temporany,  name4File1);
 			
 			MonteCarlo mc_t1 = new MonteCarlo(
 					extracted(boardTest1).duplicate(), 
@@ -252,8 +252,8 @@ public static void testOne () throws Exception {
 	//Report when games ended.
 int value1gt4_1000 = 1000;
 	//Append total outcome of the test case to the file.
-BufferedWriter output1Test1 = null;
-defineBuffers ( output1Test1,  name4File1);
+ temporany = null;
+BufferedWriter output1Test1 = defineBuffers ( temporany,  name4File1);
 	
 
 	output1Test1.append("========================================");
@@ -367,8 +367,8 @@ public static void testTwo () throws Exception {
 	startTimeTest2 = System.currentTimeMillis();
 
 	String name4File2 = "results_50k_11b_MCTS_UCTvMCTS_H(7).txt";
-	BufferedWriter outputTest2 = null;
-	defineBuffers ( outputTest2, name4File2);
+	BufferedWriter temporany = null;
+	BufferedWriter outputTest2 = defineBuffers ( temporany,  name4File2);
 	//Define buffers.
 	
 	MonteCarloH7 mc_7h = new MonteCarloH7(
@@ -477,8 +477,8 @@ public static void testTwo () throws Exception {
 	//Report when games ended.
 	int value2gt4_1000 = 1000;
 	//Append total outcome of the test case to the file.
-	BufferedWriter output1Test2 = null;	
-	defineBuffers ( output1Test2,  name4File2);
+	 temporany = null;
+	BufferedWriter output1Test2 = defineBuffers ( temporany,  name4File2);
 	
 	output1Test2.append("========================================");
 	output1Test2.newLine();
@@ -589,8 +589,8 @@ public static void testThree () throws Exception {
 	//Report when games commenced.
 	startTimeTest3 = System.currentTimeMillis();
 	String name4File3 ="results_50k_11b_MCTS_UCTvMCTS_H(10).txt";
-	BufferedWriter outputTest3 = null;
-	defineBuffers ( outputTest3, name4File3);
+	BufferedWriter temporany = null;
+	BufferedWriter outputTest3 = defineBuffers ( temporany,  name4File3);
 	//Define buffers.
 	
 	MonteCarloH10 mc10 = new MonteCarloH10(
@@ -704,8 +704,8 @@ public static void testThree () throws Exception {
 	//Report when games ended.
 	int value3gt4_1000 = 1000;
 	//Append total outcome of the test case to the file.
-	BufferedWriter output1Test3 = null;	
-	defineBuffers ( output1Test3,  name4File3);
+	 temporany = null;
+	BufferedWriter output1Test3 = defineBuffers ( temporany,  name4File3);
 	
 	output1Test3.append("========================================");
 	output1Test3.newLine();
@@ -814,8 +814,8 @@ public static void testFour () throws Exception {
 	startTimeTest4 = System.currentTimeMillis();
 
 	String name4File4 = "results_50k_11b_MCTS_UCTvMCTS_H(5+5).txt";
-	BufferedWriter outputTest4 = null;
-	defineBuffers ( outputTest4, name4File4);
+	BufferedWriter temporany = null;
+	BufferedWriter outputTest4 = defineBuffers ( temporany,  name4File4);
 	//Define buffers.
 	
 	MonteCarloH55 mc_h55 = new MonteCarloH55(
@@ -927,8 +927,8 @@ public static void testFour () throws Exception {
 	//Report when games ended.
 	int value4gt4_1000 = 1000;
 	//Append total outcome of the test case to the file.
-	BufferedWriter output1Test4 = null;	
-	defineBuffers ( output1Test4,  name4File4);
+	 temporany = null;
+	BufferedWriter output1Test4 = defineBuffers ( temporany,  name4File4);
 	
 	
 	output1Test4.append("========================================");
@@ -1035,8 +1035,8 @@ public static void testFive () throws Exception {
 	//Report when games commenced.
 	startTimeTest5 = System.currentTimeMillis();
 	String name4File5 = "results_50k_11b_MCTS_H(5)vMCTS_H(7).txt";
-	BufferedWriter outputTest5 = null;
-	defineBuffers ( outputTest5, name4File5);
+	BufferedWriter temporany = null;
+	BufferedWriter outputTest5 = defineBuffers ( temporany,  name4File5);
 	//Define buffers.
 	
 	MonteCarloH7 h7_mc = new MonteCarloH7(
@@ -1148,8 +1148,8 @@ public static void testFive () throws Exception {
 	//Report when games ended.
 	int value5gt4_1000 = 1000;
 	//Append total outcome of the test case to the file.
-	BufferedWriter output1Test5 = null;	
-	defineBuffers ( output1Test5,  name4File5);
+	 temporany = null;
+	BufferedWriter output1Test5 = defineBuffers ( temporany,  name4File5);
 	
 	
 	output1Test5.append("========================================");
@@ -1256,8 +1256,8 @@ public static void testSix () throws Exception {
 	//Report when games commenced.
 	startTimeTest6 = System.currentTimeMillis();
 	String name4File6 = "results_50k_11b_MCTS_H(7)vMCTS_H(10).txt";
-	BufferedWriter outputTest6 = null;
-	defineBuffers ( outputTest6, name4File6);
+	BufferedWriter temporany = null;
+	BufferedWriter outputTest6 = defineBuffers ( temporany,  name4File6);
 	//Define buffers.
 	
 	MonteCarloH10 mc_h10 = new MonteCarloH10(
@@ -1369,8 +1369,8 @@ public static void testSix () throws Exception {
 	//Report when games ended.
 	int value6gt4_1000 = 1000;
 	//Append total outcome of the test case to the file.
-	BufferedWriter output1Test6 = null;	
-	defineBuffers ( output1Test6,  name4File6);
+	 temporany = null;
+	BufferedWriter output1Test6 = defineBuffers ( temporany,  name4File6);
 	
 	output1Test6.append("========================================");
 	output1Test6.newLine();
@@ -1441,7 +1441,7 @@ public static void loadBoard (Board[] boardCollectionTest1, String nameBoard) {
 		
 		}
 	}
-public static  void defineBuffers (BufferedWriter output1Test, String nameFile) {
+public static  BufferedWriter defineBuffers (BufferedWriter output1Test, String nameFile) {
 	
 	try {
 	 output1Test = new BufferedWriter(
@@ -1458,7 +1458,7 @@ public static  void defineBuffers (BufferedWriter output1Test, String nameFile) 
                }	
            }
 	}
-	
+	return output1Test;
 }
 
 public static void OneSideWinsTheGame (String gameOutcome, Player[] playersTest1 

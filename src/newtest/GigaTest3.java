@@ -158,8 +158,8 @@ public static void testOne3() throws Exception {
 	startTime = System.currentTimeMillis();
 	String name3File1 = "results_20k_11b_MCTS_UCTvMCTS_H(5).txt";
 	//Define buffers.
-	BufferedWriter outputTest1 = null;
-	defineBuffers ( outputTest1, name3File1);
+	BufferedWriter temporany = null;
+	BufferedWriter outputTest1 = defineBuffers ( temporany,  name3File1);
 	
 	MonteCarlo mc_t1 = new MonteCarlo(
 			extracted(boardTest1).duplicate(), 
@@ -264,8 +264,8 @@ public static void testOne3() throws Exception {
 	//Report when games ended.
 	int value1gt3_1000 = 1000;
 	//Append total outcome of the test case to the file.
-	BufferedWriter output1Test1 = null;
-	defineBuffers ( output1Test1,  name3File1);
+	 temporany = null;
+	BufferedWriter output1Test1 = defineBuffers ( temporany,  name3File1);
 	
 	
 	output1Test1.append("========================================");
@@ -379,8 +379,8 @@ public static void testTwo3 () throws Exception {
 	startTimeTest2 = System.currentTimeMillis();
 	String name3File2 = "results_20k_11b_MCTS_UCTvMCTS_H(7).txt";
 	//Define buffers.
-	BufferedWriter outputTest2 = null;
-	defineBuffers ( outputTest2, name3File2);
+	BufferedWriter temporany = null;
+	BufferedWriter outputTest2 = defineBuffers ( temporany,  name3File2);
 	
 	MonteCarloH7 mc_mh7 = new MonteCarloH7(
 			extracted(boardTest2).duplicate(), 
@@ -485,8 +485,8 @@ public static void testTwo3 () throws Exception {
 	//Report when games ended.
 	int value2gt3_1000 = 1000;
 	//Append total outcome of the test case to the file.
-	BufferedWriter output1Test2 = null;	
-	defineBuffers ( output1Test2,  name3File2);
+	 temporany = null;
+	BufferedWriter output1Test2 = defineBuffers ( temporany,  name3File2);
 	
 	output1Test2.append("========================================");
 	output1Test2.newLine();
@@ -598,8 +598,8 @@ public static void testThree3 () throws Exception {
 	
 	String name3File3 = "results_20k_3b_MCTS_UCTvMCTS_H(10).txt";
 	//Define buffers.
-	BufferedWriter outputTest3 = null;
-	defineBuffers ( outputTest3, name3File3);
+	BufferedWriter temporany = null;
+	BufferedWriter outputTest3 = defineBuffers ( temporany,  name3File3);
 	
 	MonteCarloH10 h10_mc = new MonteCarloH10(
 			extracted(boardTest3).duplicate(), 
@@ -708,8 +708,8 @@ public static void testThree3 () throws Exception {
 
 	//Append total outcome of the test case to the file.
 	int value3gt3_1000 = 1000;
-	BufferedWriter output1Test3 = null;	
-	defineBuffers ( output1Test3,  name3File3);
+	 temporany = null;
+	BufferedWriter output1Test3 = defineBuffers ( temporany,  name3File3);
 	
 	
 	output1Test3.append("========================================");
@@ -821,8 +821,9 @@ public static void testFour3() throws Exception {
 	
 	String name3File4 = "results_20k_3b_MCTS_UCTvMCTS_H(5+5).txt";
 	//Define buffers.
-	BufferedWriter outputTest4 = null;
-	defineBuffers ( outputTest4, name3File4);
+
+	BufferedWriter temporany = null;
+	BufferedWriter outputTest4 = defineBuffers ( temporany,  name3File4);
 	
 	
 	MonteCarloH55 mc_h55 = new MonteCarloH55(
@@ -934,8 +935,9 @@ public static void testFour3() throws Exception {
 	//Report when games ended.
 	int value4gt3_1000 = 1000;
 	//Append total outcome of the test case to the file.
-	BufferedWriter output1Test4 = null;	
-	defineBuffers ( output1Test4,  name3File4);
+
+	 temporany = null;
+	BufferedWriter output1Test4 = defineBuffers ( temporany,  name3File4);
 	
 	
 	output1Test4.append("========================================");
@@ -1046,8 +1048,9 @@ public static void testFive3 () throws Exception {
 
 	String name3File5 = "results_20k_11b_MCTS_H(5)vMCTS_H(7).txt";
 	//Define buffers.
-	BufferedWriter outputTest5 = null;
-	defineBuffers ( outputTest5, name3File5);
+
+	BufferedWriter temporany = null;
+	BufferedWriter outputTest5 = defineBuffers ( temporany,  name3File5);
 	
 	
 	MonteCarloH7 h7mc = new MonteCarloH7(
@@ -1159,8 +1162,9 @@ public static void testFive3 () throws Exception {
 	//Report when games ended.
 	int value5gt3_1000 = 1000;
 	//Append total outcome of the test case to the file.
-	BufferedWriter output1Test5 = null;	
-	defineBuffers ( output1Test5,  name3File5);
+
+	temporany = null;
+	BufferedWriter output1Test5 = defineBuffers ( temporany,  name3File5);
 	
 	
 	output1Test5.append("========================================");
@@ -1269,8 +1273,9 @@ public static void testSix3() throws Exception {
 	startTimeTest6 = System.currentTimeMillis();
 	String name3File6 = "results_20k_11b_MCTS_H(7)vMCTS_H(10).txt";
 	//Define buffers.
-	BufferedWriter outputTest6 = null;
-	defineBuffers ( outputTest6, name3File6);
+	BufferedWriter temporany = null;
+	BufferedWriter outputTest6 = defineBuffers ( temporany,  name3File6);
+
 	
 	MonteCarloH10 mc_h10 = new MonteCarloH10(
 			extracted(boardTest6).duplicate(), 
@@ -1383,8 +1388,9 @@ public static void testSix3() throws Exception {
 	//Report when games ended.
 	int value6gt3_1000 = 1000;
 	//Append total outcome of the test case to the file.
-	BufferedWriter output1Test6 = null;	
-	defineBuffers ( output1Test6,  name3File6);
+	 temporany = null;
+	BufferedWriter output1Test6 = defineBuffers ( temporany,  name3File6);
+
 
 	
 	output1Test6.append("========================================");
@@ -1489,25 +1495,7 @@ public static void loadBoard (Board[] boardCollectionTest1, String nameBoard) {
 		}
 	}
 
-public static  void defineBuffers (BufferedWriter output1Test, String nameFile) {
-	
-	try {
-	 output1Test = new BufferedWriter(
-			new FileWriter(nameFile, true));
-	} catch(Exception e) {
-		System.err.println("Error occured during saving.");
-		System.out.println("Something was wrong");
-	}finally {
-           if (output1Test != null) {
-               try {
-            	   output1Test.close (); 
-               } catch (java.io.IOException e3) {
-                 System.out.println("I/O Exception");
-               }	
-           }
-	}
-	
-}
+
 
 public static void OneSideWinsTheGame (String gameOutcome, Player[] playersTest1 
 		,BufferedWriter outputTest1, boolean value, int e1TotalWins,
@@ -1541,6 +1529,26 @@ public static void OneSideWinsTheGame (String gameOutcome, Player[] playersTest1
 	outputTest1.newLine();
 	outputTest1.close();
 	
+}
+
+public static  BufferedWriter defineBuffers (BufferedWriter output1Test, String nameFile) {
+	
+	try {
+	 output1Test = new BufferedWriter(
+			new FileWriter(nameFile, true));
+	} catch(Exception e) {
+		System.err.println("Error occured during saving.");
+		System.out.println("Something was wrong");
+	}finally {
+           if (output1Test != null) {
+               try {
+            	   output1Test.close (); 
+               } catch (java.io.IOException e3) {
+                 System.out.println("I/O Exception");
+               }	
+           }
+	}
+	return output1Test;
 }
 
 }
