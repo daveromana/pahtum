@@ -125,7 +125,7 @@ public class test_boltzman {
 		}
 		
 		
-		
+		long endTime = System.currentTimeMillis();
 		MonteCarloH5Boltzmann mc = new MonteCarloH5Boltzmann(
 				boardTest1.duplicate(), 
 				playersTest1[currentIndexTest1].getColor(), 
@@ -223,7 +223,7 @@ public class test_boltzman {
 		} //End of the test case. (for)
 
 		//Report when games ended.
-		long endTime = System.currentTimeMillis();	
+			
 		//Append total outcome of the test case to the file.
 		BufferedWriter output1Test1 = null;
 		
