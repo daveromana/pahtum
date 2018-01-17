@@ -3,7 +3,6 @@ package core;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -77,10 +76,6 @@ public class Board implements Serializable{
 
 	}
 
-	public Board(Object readObject) {
-		// TODO Auto-generated constructor stub
-	}
-
 	/**
 	 * Make move on given field with given color if the field is not occupied.
 	 * @param filed Destination field.
@@ -110,19 +105,19 @@ public class Board implements Serializable{
 			oos.writeObject(this);
 			oos.flush();
 			oos.close();
-			bos.close();
+			
 			byte [] byteData = bos.toByteArray();
-
+			bos.close();
 			ByteArrayInputStream bais = new ByteArrayInputStream(byteData);
-			ObjectInputStream obduplicate = new ObjectInputStream(bais);			
-			replica = (Board) new Board(obduplicate.readObject());
-			obduplicate.close();
+			replica = (Board) new ObjectInputStream(bais).readObject();
+			bais.close();
 		} catch(Exception e) { 
+			
 			System.out.println("Something was wrong");  
-			}
+		
+		}
 		return replica;
 	}
-
 
 	/**
 	 * Generate list of all valid moves for current position.
